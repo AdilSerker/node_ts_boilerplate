@@ -1,3 +1,15 @@
+## Технологии
+
+* TypeScript
+* Express
+* Routing Controllers
+* TypeORM
+* TypeDi
+
+- PostgreSQL
+- Config Builder
+- ElasticSearch
+
 ## Создание базы данных:
 
 ```sh
@@ -37,5 +49,5 @@ yarn migrate // накатить миграции
 
 yarn migrate-undo // откатить миграции
 
-typeorm migration:create -n MIGRATION_NAME // генерирует новый файл миграции, typeorm должен быть установлен глобально и запускаться из той директории,где нужно сгенерировать файл миграции
+yarn create-migration MIGRATION_NAME // генерирует новый файл миграции, должен запускаться из той директории, где нужно сгенерировать файл миграции
 ```
