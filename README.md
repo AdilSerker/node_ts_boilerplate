@@ -23,7 +23,7 @@ psql -c "createdb db_name;" postgres
 ```sh
 yarn install
 ```
-Сборка проекта (при наличии ошибок tslint и компиляции typescript падает с ошибкой)
+Сборка проекта
 
 ```sh
 yarn build
@@ -42,12 +42,19 @@ yarn start
 
 ## Команды
 
-Миграции
+- Миграции
 
 ```sh
-yarn migrate // накатить миграции
+yarn migrate # накатить миграции
 
-yarn migrate-undo // откатить миграции
+yarn migrate-undo # откатить миграции
 
-yarn create-migration MIGRATION_NAME // генерирует новый файл миграции, должен запускаться из той директории, где нужно сгенерировать файл миграции
+yarn create-migration MIGRATION_NAME # генерирует новый файл миграции, должен запускаться из той директории, где нужно сгенерировать файл миграции
+```
+
+- Разработка
+```sh
+yarn build-dev # запуск компиляции в режиме --watch
+
+yarn watch # запуск сервера в режиме --watch
 ```
