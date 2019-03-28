@@ -12,6 +12,6 @@
     ],
     "logging": ["error"],
     "cli": {
-        "migrationsDir": "dist/infrastructure/migrations"
+        "migrationsDir": "src/infrastructure/migrations"
     }
 }
