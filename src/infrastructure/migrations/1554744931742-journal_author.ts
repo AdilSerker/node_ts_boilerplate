@@ -13,7 +13,7 @@ export class journalAuthor1554744931742 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<any> {
         await queryRunner.query(
-            `drop table journal_author;`
+            `drop table journal_authors_author;`
         );
     }
 

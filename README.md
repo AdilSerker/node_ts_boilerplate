@@ -58,3 +58,8 @@ yarn build-dev # запуск компиляции в режиме --watch
 
 yarn watch # запуск сервера в режиме --watch
 ```
+
+**Информация**
+```sh
+git ls-files | xargs wc -l # колличество строк кода
+```

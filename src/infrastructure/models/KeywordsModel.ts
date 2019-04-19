@@ -1,7 +1,8 @@
-import { Entity, PrimaryColumn, Column } from "typeorm";
+import { Entity, PrimaryColumn, Column, ManyToMany, JoinTable } from "typeorm";
+import { JournalModel } from "./JournalModel";
 
-@Entity('keywords')
-export class KeywordsModel {
+@Entity("keyword")
+export class KeywordModel {
     @PrimaryColumn("varchar")
     id: string;
 

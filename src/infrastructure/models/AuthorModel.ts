@@ -1,4 +1,5 @@
-import { Entity, PrimaryColumn, Column } from "typeorm";
+import { Entity, PrimaryColumn, Column, ManyToMany, JoinTable } from "typeorm";
+import { JournalModel } from "./JournalModel";
 
 @Entity("author")
 export class AuthorModel {

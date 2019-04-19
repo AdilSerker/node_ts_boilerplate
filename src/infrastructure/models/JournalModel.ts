@@ -1,8 +1,8 @@
 import { Entity, PrimaryColumn, Column, ManyToMany, JoinTable } from "typeorm";
 import { AuthorModel } from "./AuthorModel";
-import { KeywordsModel } from "./KeywordsModel";
+import { KeywordModel } from "./KeywordsModel";
 
-@Entity('journal')
+@Entity("journal")
 export class JournalModel {
     @PrimaryColumn("varchar")
     id: string;
@@ -14,7 +14,7 @@ export class JournalModel {
     journal: string;
 
     @Column("integer")
-    value: number;
+    volume: number;
 
     @Column("integer")
     number: number;
@@ -25,21 +25,37 @@ export class JournalModel {
     @Column("integer")
     year: number;
 
-    @Column("varchar")
+    @Column("text")
     abstract: string;
 
     @Column("varchar")
     link: string;
 
-    @Column("varchar")
+    @Column("text")
     body: string;
 
-    @ManyToMany(type => AuthorModel)
-    @JoinTable()
+    @ManyToMany(type => AuthorModel) //, author => author.journals)
+    @JoinTable({
+        name: "journal_author",
+        joinColumn: {
+            name: "journal_id"
+        },
+        inverseJoinColumn: {
+            name: "author_id"
+        }
+    })
     authors: AuthorModel[];
 
-    @ManyToMany(type => KeywordsModel)
-    @JoinTable()
-    keywords: KeywordsModel[];
+    @ManyToMany(type => KeywordModel) //, keyword => keyword.journals)
+    @JoinTable({
+        name: "journal_keyword",
+        joinColumn: {
+            name: "journal_id"
+        },
+        inverseJoinColumn: {
+            name: "keyword_id"
+        }
+    })
+    keywords: KeywordModel[];
 
 }

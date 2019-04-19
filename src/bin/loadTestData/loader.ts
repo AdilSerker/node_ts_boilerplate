@@ -3,7 +3,8 @@ import { PostgresConnectionOptions } from "typeorm/driver/postgres/PostgresConne
 
 import { IDbConnector, Connector } from "../../components/db-connector";
 import { Config, ConfigType } from "../../components/config";
-import { jsonDataParser } from "./utils";
+import { jsonDataParser, authorSaver, journalSaver } from "./utils";
+import { JournalParam } from "./types";
 
 class Loader {
     protected connection: Connection;
@@ -23,9 +24,14 @@ class Loader {
     public async load(): Promise<void> {
         await this.init();
 
-        const parsedData = await jsonDataParser('journalData.json');
+        const parsedData: JournalParam[] = await jsonDataParser('journalData.json');
 
-        console.log(parsedData);
+        const promises: any = [];
+        parsedData.forEach(item => {
+            promises.push(journalSaver(item))
+        });
+
+        await Promise.all(promises);
 
         await this.close();
     }

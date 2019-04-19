@@ -1,4 +1,5 @@
-export interface Author {
+export interface AuthorParams {
+    id?: string;
     firstname: string;
     lastname: string;
     institution: string;
@@ -9,13 +10,13 @@ export interface JournalParams {
     id: string;
     title: string;
     journal: string;
-    value: number;
+    volume: number;
     number: number;
     pages: string;
     year: number;
     abstract: string;
     link: string;
     body: string;
-    authors: Author[];
+    authors: AuthorParams[];
     keywords: string[];
 }

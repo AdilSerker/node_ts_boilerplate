@@ -12,9 +12,9 @@ export class journal1553785821055 implements MigrationInterface {
                 number integer,
                 pages varchar(255),
                 year integer,
-                abstract varchar(255),
+                abstract text,
                 link varchar(255),
-                body varchar(255)
+                body text
             );`
         );
     }
